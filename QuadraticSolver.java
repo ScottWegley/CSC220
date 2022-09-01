@@ -11,8 +11,9 @@ public class QuadraticSolver {
         findRoots("x", "y", "z");
     }
 
-    public String findRoots(Object aIn, Object bIn, Object cIn){
+    public String findRoots(Object aIn, Object bIn, Object cIn) {
         try {
+            System.out.println("Your inputs were " + aIn.toString() + " " + bIn.toString() + " " + cIn.toString());
             int a = (Integer) aIn;
             int b = (Integer) bIn;
             int c = (Integer) cIn;
@@ -31,7 +32,8 @@ public class QuadraticSolver {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Demonstration or Actual Uses? (0,1)");
             String temp = scanner.nextLine();
-            if (Integer.valueOf(temp) != 0 || Integer.valueOf(temp) != 1) {
+            // System.out.print(Integer.parseInt(temp) == 0);
+            if (Integer.parseInt(temp) != 0 && Integer.parseInt(temp) != 1) {
                 System.out.println("Invalid response.");
                 return;
             }
@@ -39,7 +41,7 @@ public class QuadraticSolver {
                 qSolver.demonstration();
                 return;
             } else {
-                
+
                 return;
             }
         } catch (Exception e) {
