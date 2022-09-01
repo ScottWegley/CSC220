@@ -4,6 +4,42 @@ import java.util.Scanner;
 
 public class QuadraticSolver {
 
+    public static void main(String[] args) {
+
+        QuadraticSolver qSolver = new QuadraticSolver();
+
+        try {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Demonstration or Actual Uses? (0,1)");
+            String temp = scanner.nextLine();
+            if (Integer.parseInt(temp) != 0 && Integer.parseInt(temp) != 1) {
+                System.out.println("Invalid response.");
+                scanner.close();
+                return;
+            }
+            if (Integer.valueOf(temp) == 0) {
+                qSolver.demonstration();
+                scanner.close();
+                return;
+            } else {
+                while (true) {
+                    System.out.println("Please type three numbers seperated by commas to represent a, b, and c; any other input will exit.");
+                    String rawResponse = scanner.nextLine();
+                    rawResponse.replace(" ", "");
+                    String[] procResponse = rawResponse.split(",");
+                    for (int i = 0; i < procResponse.length; i++) {
+                        procResponse[i].trim();
+                        System.out.println(procResponse[i]);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("You submitted an invalid value.");
+            System.out.println("Error: " + e.getMessage());
+            System.exit(0);
+        }
+    }
+
     public void demonstration() {
         findRoots(2, 4, 1);
         findRoots(1, 2, 1);
@@ -16,9 +52,9 @@ public class QuadraticSolver {
     public void findRoots(Object aIn, Object bIn, Object cIn) {
         try {
             System.out.println("Your inputs were " + aIn.toString() + " " + bIn.toString() + " " + cIn.toString());
-            int a = (Integer) aIn;
-            int b = (Integer) bIn;
-            int c = (Integer) cIn;
+            Double a = (Double) aIn;
+            Double b = (Double) bIn;
+            Double c = (Double) cIn;
 
             Double ansOne = null;
             Double ansTwo = null;
@@ -34,11 +70,15 @@ public class QuadraticSolver {
                     System.out.println("Your answer is " + ansOne.toString());
                     break;
                 case TWO_COMPLEX:
-                
-                    String baseAns = "-" + b + "/" + (2*a) + "± i*sqrt(" + ((b^2)-(4*a*c)) + ")";
-                    String compAns = baseAns;
-
-                    System.out.println("The answers are: " + compAns);
+                    System.out.println("The answer is: -" + b + "/" + (2 * a) + " ± i*sqrt(" + -((b * b) - (4 * a * c))
+                            + ")/" + 2 * a);
+                    break;
+                case LINEAR_ONE:
+                    System.out.println("The answer is: -" + c / b);
+                    break;
+                case LINEAR_ZERO:
+                    System.out.println(
+                            "Your inputs produced a linear equation parallel to the x-axis which cannot intersect the x-axis by definition.");
                     break;
                 default:
                     System.out.println("Something has gone wrong.");
@@ -62,7 +102,7 @@ public class QuadraticSolver {
         INVALID
     }
 
-    public EquationStates processEquation(int aIn, int bIn, int cIn) {
+    public EquationStates processEquation(Double aIn, Double bIn, Double cIn) {
         if (aIn == 0) {
             if (bIn == 0) {
                 return EquationStates.LINEAR_ZERO;
@@ -81,33 +121,6 @@ public class QuadraticSolver {
             return EquationStates.TWO_COMPLEX;
         }
         return EquationStates.INVALID;
-    }
-
-    public static void main(String[] args) {
-
-        QuadraticSolver qSolver = new QuadraticSolver();
-
-        try {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Demonstration or Actual Uses? (0,1)");
-            String temp = scanner.nextLine();
-            if (Integer.parseInt(temp) != 0 && Integer.parseInt(temp) != 1) {
-                System.out.println("Invalid response.");
-                return;
-            }
-            if (Integer.valueOf(temp) == 0) {
-                qSolver.demonstration();
-                return;
-            } else {
-                while (true) {
-
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("You submitted an invalid value.");
-            System.out.println("Error: " + e.getMessage());
-        }
-
     }
 
 }
