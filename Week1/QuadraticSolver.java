@@ -27,17 +27,23 @@ public class QuadraticSolver {
                 case TWO_REAL:
                     ansOne = (-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
                     ansTwo = (-b - Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
+                    System.out.println("Your answers are " + ansOne.toString() + " and " + ansTwo.toString());
+                    break;
+                case ONE_REAL:
+                    ansOne = (-b + Math.sqrt(Math.pow(b, 2) - (4 * a * c))) / (2 * a);
+                    System.out.println("Your answer is " + ansOne.toString());
+                    break;
+                case TWO_COMPLEX:
+                    String baseAns = "-" + b + "/" + (2*a) + "±";
+                    String compAns = baseAns;
+
+                    System.out.println("The answers are: " + compAns);
                     break;
                 default:
                     System.out.println("Something has gone wrong.");
                     break;
             }
-
-            if (ansOne != null && ansTwo != null) {
-                System.out.println("Your answers are " + ansOne.toString() + " and " + ansTwo.toString());
-                return;
-            }
-
+            return;
         } catch (Exception e) {
             System.out.println("One or more of your inputs were invalid. Your inputs: " + aIn.toString() + " "
                     + bIn.toString() + " " + cIn.toString());
@@ -93,7 +99,7 @@ public class QuadraticSolver {
                 return;
             } else {
                 while (true) {
-                    
+
                 }
             }
         } catch (Exception e) {
