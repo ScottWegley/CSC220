@@ -18,12 +18,24 @@ public class QuadraticSolver {
             int a = (Integer) aIn;
             int b = (Integer) bIn;
             int c = (Integer) cIn;
+
+
         } catch (Exception e) {
-            System.out.println("One or more of your inputs were invalid. Sorry");
+            System.out.println("One or more of your inputs were invalid. Your inputs: " + aIn.toString() + " " + bIn.toString() + " " + cIn.toString());
             System.out.println("Error Message: " + e.getMessage());
         }
         return "";
     }
+
+    enum EquationStates {
+        TWO_REAL,
+        ONE_REAL,
+        TWO_COMPLEX,
+        LINEAR_ONE,
+        LINEAR_ZERO,
+    }
+
+    public EquationStates processEquation()
 
     public static void main(String[] args) {
 
