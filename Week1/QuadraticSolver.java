@@ -34,7 +34,8 @@ public class QuadraticSolver {
                     System.out.println("Your answer is " + ansOne.toString());
                     break;
                 case TWO_COMPLEX:
-                    String baseAns = "-" + b + "/" + (2*a) + "±";
+                
+                    String baseAns = "-" + b + "/" + (2*a) + "± i*sqrt(" + ((b^2)-(4*a*c)) + ")";
                     String compAns = baseAns;
 
                     System.out.println("The answers are: " + compAns);
