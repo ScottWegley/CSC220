@@ -52,9 +52,9 @@ public class QuadraticSolver {
     public void findRoots(Object aIn, Object bIn, Object cIn) {
         try {
             System.out.println("Your inputs were " + aIn.toString() + " " + bIn.toString() + " " + cIn.toString());
-            Double a = (double) aIn;
-            Double b = (double) bIn;
-            Double c = (double) cIn;
+            double a = Double.parseDouble(aIn.toString());
+            double b = Double.parseDouble(bIn.toString());
+            double c = Double.parseDouble(cIn.toString());
 
             Double ansOne = null;
             Double ansTwo = null;
