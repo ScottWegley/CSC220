@@ -1,5 +1,6 @@
 package Week1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class QuadraticSolver {
@@ -23,14 +24,13 @@ public class QuadraticSolver {
                 return;
             } else {
                 while (true) {
-                    System.out.println("Please type three numbers seperated by commas to represent a, b, and c; any other input will exit.");
-                    String rawResponse = scanner.nextLine();
-                    rawResponse.replace(" ", "");
-                    String[] procResponse = rawResponse.split(",");
-                    for (int i = 0; i < procResponse.length; i++) {
-                        procResponse[i].trim();
-                        System.out.println(procResponse[i]);
-                    }
+                    System.out.println("Please submit a value for a");
+                    String a = scanner.nextLine();
+                    System.out.println("Please submit a value for b");
+                    String b = scanner.nextLine();
+                    System.out.println("Please submit a value for c");
+                    String c = scanner.nextLine();
+                    qSolver.findRoots(a, b, c);
                 }
             }
         } catch (Exception e) {
@@ -52,9 +52,9 @@ public class QuadraticSolver {
     public void findRoots(Object aIn, Object bIn, Object cIn) {
         try {
             System.out.println("Your inputs were " + aIn.toString() + " " + bIn.toString() + " " + cIn.toString());
-            Double a = (Double) aIn;
-            Double b = (Double) bIn;
-            Double c = (Double) cIn;
+            Double a = (double) aIn;
+            Double b = (double) bIn;
+            Double c = (double) cIn;
 
             Double ansOne = null;
             Double ansTwo = null;
