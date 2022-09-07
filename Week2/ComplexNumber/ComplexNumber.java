@@ -19,11 +19,11 @@ public class ComplexNumber {
         iNum = rhs.getImag();
     }
 
-    public void setReal(double r){
+    public void setReal(double r) {
         realNum = r;
     }
 
-    public void setImag(double i){
+    public void setImag(double i) {
         iNum = i;
     }
 
@@ -37,6 +37,14 @@ public class ComplexNumber {
 
     public String toString() {
         return realNum + ((iNum < 0) ? (" - " + Math.abs(iNum)) : (" + " + iNum)) + "i";
+    }
+
+    public ComplexNumber add(ComplexNumber rhs) {
+        return new ComplexNumber(this.realNum + rhs.getReal(), this.iNum + rhs.getImag());
+    }
+
+    public ComplexNumber sub(ComplexNumber rhs) {
+        return new ComplexNumber(this.realNum - rhs.getReal(), this.iNum - rhs.getImag());
     }
 
     public static void main(String[] args) {
