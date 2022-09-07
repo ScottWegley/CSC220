@@ -40,7 +40,7 @@ public class ComplexNumber {
     }
 
     public static void main(String[] args) {
-        ComplexNumber test = new ComplexNumber();
+        ComplexNumber test = new ComplexNumber(1, -1);
         System.out.println(test.toString());
     }
 }
