@@ -47,16 +47,19 @@ public class ComplexNumber {
         return new ComplexNumber(this.realNum - rhs.getReal(), this.iNum - rhs.getImag());
     }
 
-    public ComplexNumber mult() {
-
+    public ComplexNumber mult(ComplexNumber rhs) {
+        return new ComplexNumber(rhs.getReal() * this.realNum, rhs.getImag() * this.iNum);
     }
 
-    public ComplexNumber div() {
-        
+    public ComplexNumber div(ComplexNumber rhs) throws ArithmeticException{
+        if(rhs.getReal() == 0 && rhs.getImag() == 0) {
+            throw new ArithmeticException("Denominator cannot equal 0");
+        }
+        return new ComplexNumber((this.realNum * rhs.getReal() + this.getImag() * rhs.getImag())/(rhs.getReal()*rhs.getReal() + rhs.getImag() * rhs.getImag()),(this.iNum * rhs.getReal() - this.realNum * rhs.getImag())/(rhs.getReal()*rhs.getReal() + rhs.getImag() * rhs.getImag()));
     }
 
     public static void main(String[] args) {
-        ComplexNumber test = new ComplexNumber(1, -1);
+        ComplexNumber test = new ComplexNumber();
         System.out.println(new ComplexNumber().sub(test));
     }
 }
