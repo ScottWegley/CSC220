@@ -47,6 +47,14 @@ public class ComplexNumber {
         return new ComplexNumber(this.realNum - rhs.getReal(), this.iNum - rhs.getImag());
     }
 
+    public ComplexNumber mult() {
+
+    }
+
+    public ComplexNumber div() {
+        
+    }
+
     public static void main(String[] args) {
         ComplexNumber test = new ComplexNumber(1, -1);
         System.out.println(new ComplexNumber().sub(test));
