@@ -55,7 +55,9 @@ public class ComplexNumber {
         if(rhs.getReal() == 0 && rhs.getImag() == 0) {
             throw new ArithmeticException("Denominator cannot equal 0");
         }
-        return new ComplexNumber((this.realNum * rhs.getReal() + this.getImag() * rhs.getImag())/(rhs.getReal()*rhs.getReal() + rhs.getImag() * rhs.getImag()),(this.iNum * rhs.getReal() - this.realNum * rhs.getImag())/(rhs.getReal()*rhs.getReal() + rhs.getImag() * rhs.getImag()));
+        double outReal = (this.realNum * rhs.getReal() + this.getImag() * rhs.getImag())/(rhs.getReal()*rhs.getReal() + rhs.getImag() * rhs.getImag());
+        double outImag = (this.iNum * rhs.getReal() - this.realNum * rhs.getImag())/(rhs.getReal()*rhs.getReal() + rhs.getImag() * rhs.getImag());
+        return new ComplexNumber(outReal, outImag);
     }
 
     public static void main(String[] args) {
