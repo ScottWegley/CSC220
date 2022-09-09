@@ -59,7 +59,8 @@ public class ComplexNumber {
     }
 
     public static void main(String[] args) {
-        ComplexNumber test = new ComplexNumber();
-        System.out.println(new ComplexNumber().sub(test));
+        ComplexNumber testOne = new ComplexNumber(2,3);
+        ComplexNumber testTwo = new ComplexNumber(4,5);
+        System.out.println(testOne.mult(testTwo));
     }
 }
