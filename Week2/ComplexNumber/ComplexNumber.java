@@ -64,9 +64,13 @@ public class ComplexNumber {
         return Math.sqrt(this.realNum * this.realNum + this.iNum * this.iNum);
     }
 
+    public ComplexNumber conj() {
+        return new ComplexNumber(this.realNum, -this.iNum);
+    }
+
     public static void main(String[] args) {
-        ComplexNumber testOne = new ComplexNumber(2,5);
+        ComplexNumber testOne = new ComplexNumber(4,3);
         ComplexNumber testTwo = new ComplexNumber(1,2);
-        System.out.println(testOne.div(testTwo));
+        System.out.println(testOne.conj() + " " + testOne.mag());
     }
 }
