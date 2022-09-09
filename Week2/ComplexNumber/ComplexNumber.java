@@ -68,6 +68,10 @@ public class ComplexNumber {
         return new ComplexNumber(this.realNum, -this.iNum);
     }
 
+    public ComplexNumber sqrt() {
+        if(this.)
+    }
+
     public static void main(String[] args) {
         ComplexNumber testOne = new ComplexNumber(4,3);
         ComplexNumber testTwo = new ComplexNumber(1,2);
