@@ -60,6 +60,10 @@ public class ComplexNumber {
         return new ComplexNumber(outReal, outImag);
     }
 
+    public double mag() {
+        return Math.sqrt(this.realNum * this.realNum + this.iNum * this.iNum);
+    }
+
     public static void main(String[] args) {
         ComplexNumber testOne = new ComplexNumber(2,5);
         ComplexNumber testTwo = new ComplexNumber(1,2);
