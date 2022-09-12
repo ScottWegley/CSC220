@@ -71,11 +71,13 @@ public class ComplexNumber {
     public ComplexNumber sqrt() {
         if(this.iNum == 0){
             if(this.realNum < 0){
-                return new ComplexNumber();
+                return new ComplexNumber(0, Math.sqrt(-this.realNum));
             } else {
-                return new ComplexNumber();
+                return new ComplexNumber(Math.sqrt(this.realNum), 0);
             }
         } else {
+            double outReal = (Math.sqrt((this.realNum + Math.sqrt(this.realNum*this.realNum + this.iNum*this.iNum))/2));
+            double outImag = (Math.sqrt((-this.realNum + Math.sqrt(this.realNum*this.realNum + this.iNum*this.iNum))/2));
             return new ComplexNumber();
         }
     }
