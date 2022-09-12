@@ -78,13 +78,13 @@ public class ComplexNumber {
         } else {
             double outReal = (Math.sqrt((this.realNum + Math.sqrt(this.realNum*this.realNum + this.iNum*this.iNum))/2));
             double outImag = (Math.sqrt((-this.realNum + Math.sqrt(this.realNum*this.realNum + this.iNum*this.iNum))/2));
-            return new ComplexNumber();
+            return new ComplexNumber(outReal, outImag);
         }
     }
 
     public static void main(String[] args) {
-        ComplexNumber testOne = new ComplexNumber(4,3);
+        ComplexNumber testOne = new ComplexNumber(3,4);
         ComplexNumber testTwo = new ComplexNumber(1,2);
-        System.out.println(testOne.conj() + " " + testOne.mag());
+        System.out.println(testOne.sqrt());
     }
 }
