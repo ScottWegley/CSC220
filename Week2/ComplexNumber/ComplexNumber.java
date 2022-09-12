@@ -69,7 +69,15 @@ public class ComplexNumber {
     }
 
     public ComplexNumber sqrt() {
-        if(this.)
+        if(this.iNum == 0){
+            if(this.realNum < 0){
+                return new ComplexNumber();
+            } else {
+                return new ComplexNumber();
+            }
+        } else {
+            return new ComplexNumber();
+        }
     }
 
     public static void main(String[] args) {
