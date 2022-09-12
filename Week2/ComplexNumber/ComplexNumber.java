@@ -82,9 +82,13 @@ public class ComplexNumber {
         }
     }
 
+    public boolean equals(Object rhs){
+        return this == rhs;
+    }
+
     public static void main(String[] args) {
-        ComplexNumber testOne = new ComplexNumber(3,4);
-        ComplexNumber testTwo = new ComplexNumber(1,2);
-        System.out.println(testOne.sqrt());
+        ComplexNumber testOne = new ComplexNumber(0,0);
+        ComplexNumber testTwo = new ComplexNumber();
+        System.out.println(testOne.equals(testTwo));
     }
 }
