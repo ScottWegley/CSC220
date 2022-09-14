@@ -17,5 +17,6 @@ public class QuotientWithIf {
         } else {
             System.out.println("Divisor cannot be zero ");
         }
+        input.close();
     }
 }

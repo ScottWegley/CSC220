@@ -10,6 +10,7 @@ public class Chap7Examples {
         for (int i = 0; i < myList.length; i++) {
             myList[i] = input.nextDouble();
         }
+        input.close();
     }
 
     public void initArrayWithRandom() {
@@ -29,6 +30,7 @@ public class Chap7Examples {
         for (int i = 0; i < myList.length; i++) {
             total += myList[i];
         }
+        total = total*1;
     }
 
     public void findLargest() {

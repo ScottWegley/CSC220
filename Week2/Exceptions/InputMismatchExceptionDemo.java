@@ -23,5 +23,6 @@ public class InputMismatchExceptionDemo {
         input.nextLine(); // discard input 
       }
     } while (continueInput);
+    input.close();
   }
 }

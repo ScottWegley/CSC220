@@ -10,5 +10,6 @@ public class Quotient {
         int num2 = input.nextInt();
 
         System.out.println(num1 + " / " + num2 + " is " + (num1/num2));
+        input.close();
     }
 }

@@ -28,5 +28,6 @@ public class QuotientWithException {
     }
 
     System.out.println("Execution continues ...");
+    input.close();
   }
 }
