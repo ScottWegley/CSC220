@@ -1,4 +1,4 @@
-/* package Week2.ComplexNumber;
+package Week2.ComplexNumber;
 
 public class TestComplexNumber {
 
@@ -43,4 +43,4 @@ public class TestComplexNumber {
 		
 	}
 
-} */
+}

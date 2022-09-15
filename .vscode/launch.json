@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestComplexNumber",
+            "request": "launch",
+            "mainClass": "Week2.ComplexNumber.TestComplexNumber",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
             "name": "Launch GuessBirthdayUsingArray",
             "request": "launch",
             "mainClass": "Week3.WednesdayExamples.GuessBirthdayUsingArray",

@@ -40,18 +40,23 @@ public class ComplexNumber {
     }
 
     public ComplexNumber add(ComplexNumber rhs) {
+        System.out.println("Adding");
         return new ComplexNumber(this.realNum + rhs.getReal(), this.iNum + rhs.getImag());
     }
 
     public ComplexNumber sub(ComplexNumber rhs) {
+        System.out.println("Subtracting");
         return new ComplexNumber(this.realNum - rhs.getReal(), this.iNum - rhs.getImag());
     }
 
     public ComplexNumber mult(ComplexNumber rhs) {
+        System.out.println("Multiplying");
         return new ComplexNumber(rhs.getReal() * this.realNum, rhs.getImag() * this.iNum);
     }
 
     public ComplexNumber div(ComplexNumber rhs) throws ArithmeticException{
+        System.out.println("Dividing");
+        System.out.println(rhs.getReal() + " " + rhs.getImag());
         if(rhs.getReal() == 0 && rhs.getImag() == 0) {
             throw new ArithmeticException("Denominator cannot equal 0");
         }
@@ -82,8 +87,8 @@ public class ComplexNumber {
         }
     }
 
-    public boolean equals(Object rhs){
-        return this == rhs;
+    public boolean equals(ComplexNumber rhs){
+        return (this.realNum == rhs.getReal()) && (this.iNum == rhs.getImag());
     }
 
     public static void main(String[] args) {
