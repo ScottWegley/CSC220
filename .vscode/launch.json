@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestComparator",
+            "request": "launch",
+            "mainClass": "Week4.Chap20_Examples.TestComparator",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestArrayAndLinkedList",
+            "request": "launch",
+            "mainClass": "Week4.Chap20_Examples.TestArrayAndLinkedList",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
+            "name": "Launch LockerPuzzle",
+            "request": "launch",
+            "mainClass": "Week4.LockerPuzzle.LockerPuzzle",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
             "name": "Launch TestComplexNumber",
             "request": "launch",
             "mainClass": "Week2.ComplexNumber.TestComplexNumber",
