@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch SortStringIgnoreCase",
+            "request": "launch",
+            "mainClass": "Week4.Chap20_Examples.SortStringIgnoreCase",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
+            "name": "Launch SortStringByLength",
+            "request": "launch",
+            "mainClass": "Week4.Chap20_Examples.SortStringByLength",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
             "name": "Launch TestComparator",
             "request": "launch",
             "mainClass": "Week4.Chap20_Examples.TestComparator",
