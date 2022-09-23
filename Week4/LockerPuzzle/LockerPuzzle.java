@@ -2,7 +2,7 @@ package Week4.LockerPuzzle;
 
 public class LockerPuzzle {
     public static void main(String[] args) {
-        lockerSim(8);
+        lockerSim(100);
     }
     //Weirdly finds the sqrt of n to the nearest full number.
     public static void lockerSim(int n) {
