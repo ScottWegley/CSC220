@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TestFile",
+            "request": "launch",
+            "mainClass": "Week5.Week5Assignment.MySolution.TestFile",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
             "name": "Launch FourEqualNumbersPuzzle",
             "request": "launch",
             "mainClass": "Week4.FourEqualNumbersPuzzle.FourEqualNumbersPuzzle",
