@@ -1,4 +1,4 @@
-package Week5.Week5Assignment.MySolution;
+package Week5.Week5Assignment;
 
 public class LinkedQueue<E> {
 
