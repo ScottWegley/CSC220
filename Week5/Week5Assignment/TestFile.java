@@ -45,7 +45,7 @@ public class TestFile {
         s.pop();
         s.count();
         s.display();
-        while(s.count() != 0){
+        while(!s.empty(false)){
             s.pop();
         }
     }

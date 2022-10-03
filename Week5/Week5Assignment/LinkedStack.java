@@ -25,9 +25,11 @@ public class LinkedStack<E> {
     }
 
     public Node<E> pop(){
+        if(empty(false)) return null;
         Node<E> out = top;
         top = top.next;
         System.out.println("Popped: " + out);
+        currentSize--;
         return out;
     }
 

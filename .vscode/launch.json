@@ -8,6 +8,13 @@
             "type": "java",
             "name": "Launch TestFile",
             "request": "launch",
+            "mainClass": "Week5.Week5Assignment.TestFile",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestFile",
+            "request": "launch",
             "mainClass": "Week5.Week5Assignment.MySolution.TestFile",
             "projectName": "COMP220_6edc3d37"
         },
