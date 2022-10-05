@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Exercise11",
+            "request": "launch",
+            "mainClass": "Week6.Assignment.Exercise11",
+            "projectName": "COMP220_6edc3d37"
+        },
+        {
+            "type": "java",
             "name": "Launch TestFile",
             "request": "launch",
             "mainClass": "Week5.Week5Assignment.TestFile",

@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.LinkedList;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -15,6 +16,9 @@ public class Exercise11 extends JPanel {
     private JButton jbtInsert = new JButton("Insert");
     private JButton jbtDelete = new JButton("Delete");
     private JButton jbtSearch = new JButton("Search");
+    private JButton jbtInorder = new JButton("Show Inorder");
+    private JButton jbtPostorder = new JButton("Show Postorder");
+    private JButton jbtPreorder = new JButton("Show Preorder");
     private ArrayList<Integer> searchPath = new ArrayList<>();
     private int showSearchLenght = -1;
     private Timer timer1;
@@ -23,7 +27,7 @@ public class Exercise11 extends JPanel {
         JFrame frame = new JFrame("Exercise11");
         JApplet applet = new DisplayBST();
         frame.add(applet);
-        frame.setSize(500, 300);
+        frame.setSize(1000, 300);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -53,6 +57,9 @@ public class Exercise11 extends JPanel {
         panel.add(jbtInsert);
         panel.add(jbtDelete);
         panel.add(jbtSearch);
+        panel.add(jbtInorder);
+        panel.add(jbtPreorder);
+        panel.add(jbtPostorder);
         add(panel, BorderLayout.SOUTH);
 
         jbtInsert.addActionListener(new ActionListener() {
@@ -98,6 +105,9 @@ public class Exercise11 extends JPanel {
                 jbtInsert.setEnabled(false);
                 jbtDelete.setEnabled(false);
                 jbtSearch.setEnabled(false);
+                jbtInorder.setEnabled(false);
+                jbtPreorder.setEnabled(false);
+                jbtPostorder.setEnabled(false);
                 timer1.start();
             }
         });
@@ -111,6 +121,9 @@ public class Exercise11 extends JPanel {
                     jbtInsert.setEnabled(true);
                     jbtDelete.setEnabled(true);
                     jbtSearch.setEnabled(true);
+                    jbtInorder.setEnabled(true);
+                    jbtPreorder.setEnabled(true);
+                    jbtPostorder.setEnabled(true);
                     JOptionPane.showMessageDialog(null, jtfKey.getText() + " is not in the tree");
                     showSearchLenght = -1;
                     view.repaint();
@@ -123,8 +136,44 @@ public class Exercise11 extends JPanel {
                         jbtInsert.setEnabled(true);
                         jbtDelete.setEnabled(true);
                         jbtSearch.setEnabled(true);
+                        jbtInorder.setEnabled(false);
+                        jbtPreorder.setEnabled(false);
+                        jbtPostorder.setEnabled(false);
                     }
                 }
+            }
+        });
+
+        jbtInorder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String msg = "";
+                for (Integer x : tree.inorderList()) {
+                    msg = msg + x.toString() + "\n";
+                }
+                JOptionPane.showMessageDialog(null, msg);
+            }
+        });
+
+        jbtPreorder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String msg = "";
+                for (Integer x : tree.preorderList()) {
+                    msg = msg + x.toString() + "\n";
+                }
+                JOptionPane.showMessageDialog(null, msg);
+            }
+        });
+
+        jbtPostorder.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String msg = "";
+                for (Integer x : tree.postorderList()) {
+                    msg = msg + x.toString() + "\n";
+                }
+                JOptionPane.showMessageDialog(null, msg);
             }
         });
     }
@@ -191,6 +240,50 @@ public class Exercise11 extends JPanel {
     static class BST<E extends Comparable<E>> extends AbstractTree<E> {
         protected TreeNode<E> root;
         protected int size = 0;
+        public List<E> myList = new ArrayList<>();
+
+        public List<E> postorderList() {
+            myList.clear();
+            postorderList(root);
+            return myList;
+        }
+
+        protected void postorderList(TreeNode<E> root) {
+            if (root == null)
+                return;
+            postorderList(root.left);
+            postorderList(root.right);
+            myList.add(root.element);
+        }
+
+        public List<E> preorderList() {
+            myList.clear();
+            preorderList(root);
+            return myList;
+        }
+
+        protected void preorderList(TreeNode<E> root) {
+            if (root == null)
+                return;
+            myList.add(root.element);
+            preorderList(root.left);
+            preorderList(root.right);
+        }
+
+        public List<E> inorderList() {
+            myList.clear();
+            inorderList(root);
+            return myList;
+        }
+
+        protected void inorderList(TreeNode<E> root) {
+            if (root == null) {
+                return;
+            }
+            inorderList(root.left);
+            myList.add(root.element);
+            inorderList(root.right);
+        }
 
         public void inorder2() {
             if (root == null) {
