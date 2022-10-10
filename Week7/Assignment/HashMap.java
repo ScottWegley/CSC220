@@ -2,6 +2,9 @@ package Week7.Assignment;
 
 public class HashMap<KEYTYPE,DATATYPE> extends HashMapBase<KEYTYPE,DATATYPE>{
 
+    public HashMap(int i) {
+    }
+
     @Override
     protected int hash(Object key) {
         // TODO Auto-generated method stub
