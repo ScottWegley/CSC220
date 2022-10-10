@@ -6,6 +6,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ControlCircleWithoutEventHandling",
+            "request": "launch",
+            "mainClass": "Week7.Ch15.ControlCircleWithoutEventHandling",
+            "projectName": "COMP220_6edc3d37",
+            "vmArgs": "--module-path \"C:\\Program Files\\Eclipse Adoptium\\javafx-sdk-19\\lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Launch Exercise11",
             "request": "launch",
             "mainClass": "Week6.Assignment.Exercise11",
