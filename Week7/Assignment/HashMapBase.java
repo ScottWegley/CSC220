@@ -82,8 +82,8 @@ public abstract class HashMapBase<KEYTYPE, DATATYPE> {
     public class HashMapNode<KEYTYPE, DATATYPE> {
 
         // -- the object value
-        private KEYTYPE key;
-        private DATATYPE value;
+        public KEYTYPE key;
+        public DATATYPE value;
 
         // -- parameter is assigned to value
         public HashMapNode(KEYTYPE key, DATATYPE value) {
