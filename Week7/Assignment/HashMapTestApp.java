@@ -15,8 +15,11 @@ public class HashMapTestApp {
 			hmsd.add(i + "", (double)i);
 		}
 		
-		System.out.println(hmsd);
-
+		/* System.out.println(hmsd);
+		System.out.println("=========Sizes==========\n"); */
+		for(int i : hmsd.getSizes()) {
+			System.out.println(i);
+		}
 
 		try {
 			FileWriter csvwriter = new FileWriter("hashmap.csv");
@@ -34,7 +37,7 @@ public class HashMapTestApp {
 		for (int i = 0; i < 17; ++i) {
 			hmdi.add(i * 2.1, i);
 		}
-		System.out.println(hmdi);
+		System.out.println(hmdi.toFString());
 		
 	}
 }
