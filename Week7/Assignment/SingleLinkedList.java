@@ -1,6 +1,42 @@
 package Week7.Assignment;
 
-public class SingleLinkedList<T> extends SingleLinkedListAbstract<T> implements SingleLinkedListInterface<T> {
+import java.util.NoSuchElementException;
+
+public class SingleLinkedList<T> extends SingleLinkedListAbstract<T> implements SingleLinkedListInterface<T>, Iterable<T>{
+
+
+    @Override
+    public java.util.Iterator<T> iterator() {
+        // TODO Auto-generated method stub
+        return new LLIterator();
+    }
+    private class LLIterator implements java.util.Iterator<T> {
+
+        private LinkedListNode<T> next, last, prev;
+
+        LLIterator() {
+            next = head.getNext();
+        }
+
+        @Override
+        public boolean hasNext() {
+            return next != null;
+        }
+
+        @Override
+        public T next() {
+            if(next == null) throw new NoSuchElementException();
+            last = next;
+            next = next.getNext();
+            if(prev == null) {
+                prev = head;
+            } else {
+                prev = prev.getNext();
+            }
+            return last.getValue();
+        }
+        
+    }
 
     @Override
     public boolean isEmpty() {
