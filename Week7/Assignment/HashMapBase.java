@@ -62,7 +62,7 @@ public abstract class HashMapBase<KEYTYPE, DATATYPE> {
     public String toString() {
         String s = "";
         for (int i = 0; i < hashmap.length; ++i) {
-            if (!hashmap[i].isEmpty()) {
+            if (hashmap[i] != null) {
                 int j;
                 for (j = 0; j < hashmap[i].size() - 1; ++j) {
                     s += hashmap[i].get(j) + ", ";

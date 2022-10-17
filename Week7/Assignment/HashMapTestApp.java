@@ -15,6 +15,9 @@ public class HashMapTestApp {
 			hmsd.add(i + "", (double)i);
 		}
 		
+		System.out.println(hmsd);
+
+
 		try {
 			FileWriter csvwriter = new FileWriter("hashmap.csv");
 			int s[] = hmsd.getSizes();
