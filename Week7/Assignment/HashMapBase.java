@@ -73,6 +73,21 @@ public abstract class HashMapBase<KEYTYPE, DATATYPE> {
         return s;
     }
 
+    public String toFString() {
+        String s = "Begin\n";
+        for(int i = 0; i < hashmap.length; i++) {
+            if(hashmap[i] != null) {
+                int j;
+                s += "(Bucket " + i + ") ";
+                for (j =0; j < hashmap[i].size(); j++){
+                    s += hashmap[i].get(j) + ", ";
+                }
+                s += "\n";
+            }
+        }
+        return s;
+    }
+
     /**
      * Inner class to define the node used by the linked-list
      *
