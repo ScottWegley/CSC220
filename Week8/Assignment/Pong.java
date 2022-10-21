@@ -13,7 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;;
+import javafx.scene.text.Font;
 
 public class Pong extends Application {
 
