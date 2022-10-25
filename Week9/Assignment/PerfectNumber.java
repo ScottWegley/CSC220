@@ -20,8 +20,11 @@ public class PerfectNumber implements PerfectNumberInterface {
 
     @Override
     public long getNextPerfect(long p) {
-        // TODO Auto-generated method stub
-        return 0;
+        p += 1;
+        while (!isPerfect(p)) {
+            p += 1;
+        }
+        return p;
     }
-    
+
 }
