@@ -4,8 +4,7 @@ public class PerfectNumber implements PerfectNumberInterface {
 
     @Override
     public boolean isPerfect(long n) {
-        // TODO Auto-generated method stub
-        return false;
+        long sum = 1;
     }
 
     @Override
