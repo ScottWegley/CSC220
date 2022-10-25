@@ -5,6 +5,11 @@ public class PerfectNumber implements PerfectNumberInterface {
     @Override
     public boolean isPerfect(long n) {
         long sum = 1;
+        for (long i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                sum += i + n / i;
+            }
+        }
     }
 
     @Override
