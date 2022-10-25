@@ -15,8 +15,7 @@ public class PerfectNumber implements PerfectNumberInterface {
 
     @Override
     public long getPerfect(long p) {
-        // TODO Auto-generated method stub
-        return 0;
+        return (long) (Math.pow(2, p - 1) * Math.pow(2, p) - 1);
     }
 
     @Override
