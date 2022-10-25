@@ -1,11 +1,12 @@
 package Week9.Assignment;
 
+import java.util.ArrayList;
+
 public class PrimeNumber implements PrimeNumberInterface {
 
     @Override
     public long[] primeFactors(long p) {
-        // TODO Auto-generated method stub
-        return null;
+        ArrayList<Long> factors = new ArrayList<Long>();
     }
 
     @Override
