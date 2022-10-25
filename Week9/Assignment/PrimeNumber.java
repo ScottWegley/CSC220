@@ -35,8 +35,11 @@ public class PrimeNumber implements PrimeNumberInterface {
 
     @Override
     public long nextPrime(long p) {
-        // TODO Auto-generated method stub
-        return 0;
+        p += 1;
+        while (!isPrime(p)) {
+            p += 1;
+        }
+        return p;
     }
-    
+
 }
