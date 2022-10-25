@@ -25,8 +25,12 @@ public class PrimeNumber implements PrimeNumberInterface {
 
     @Override
     public boolean isPrime(long p) {
-        // TODO Auto-generated method stub
-        return false;
+        for (long i = 2L; i <= Math.sqrt(p); i++) {
+            if (p % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
