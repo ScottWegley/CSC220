@@ -2,11 +2,11 @@ package Week9.Assignment;
 
 public class TestApp {
     public static void main(String[] args) {
-        /* PerfectNumberInterface pf = new PerfectNumber();
+        PerfectNumberInterface pf = new PerfectNumber();
         for (int p = 1; p < 20; ++p) {
             long perfect = pf.getPerfect(p);
             System.out.println("From main: " + p + " " + perfect + " " + pf.isPerfect(perfect));
-        } */
+        }
 
         PrimeNumberInterface pr = new PrimeNumber();
         for (int i = 1; i < 20; ++i) {
