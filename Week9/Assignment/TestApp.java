@@ -3,8 +3,7 @@ package Week9.Assignment;
 public class TestApp {
     public static void main(String[] args) {
         PerfectNumberInterface pf = new PerfectNumber();
-        System.out.println(pf.isPerfect(1));
-        /* for (int p = 1; p < 20; ++p) {
+        for (int p = 1; p < 20; ++p) {
             long perfect = pf.getPerfect(p);
             System.out.println("From main: " + p + " " + perfect + " " + pf.isPerfect(perfect));
         }
@@ -19,8 +18,8 @@ public class TestApp {
                 for (int f = 0; f < factors.length - 1; ++f) {
                     System.out.print(factors[f] + " * ");
                 }
-                System.out.println(factors[factors.length - 1]);
+                System.out.println(factors.length > 0 ? factors[factors.length - 1] : "");
             }
-        } */
+        }
     }
 }
