@@ -18,7 +18,6 @@ public class PrimeNumber implements PrimeNumberInterface {
         long[] arr = new long[factors.size()];
         for (int i = 0; i < factors.size(); i++) {
             arr[i] = factors.get(i);
-            System.out.println(arr[i]);
         }
         return arr;
     }
@@ -30,7 +29,7 @@ public class PrimeNumber implements PrimeNumberInterface {
                 return false;
             }
         }
-        return true;
+        return true && p != 1L;
     }
 
     @Override

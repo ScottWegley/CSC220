@@ -10,7 +10,7 @@ public class PerfectNumber implements PerfectNumberInterface {
                 sum += i + n / i;
             }
         }
-        return sum == n;
+        return sum == n && sum != 1L;
     }
 
     @Override
