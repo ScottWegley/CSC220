@@ -57,8 +57,17 @@ public class PrimePerfectGUI extends Application {
             Long q = 0L;
             if (validateNum(perfNumReq.getText())) {
                 for (i = Integer.parseInt(perfNumReq.getText()); i > 0; i--) {
-                    q = perNum.getNextPerfect(q);
-                    listPerfNums.appendText(Long.toString(q) + "\n");
+                    try {
+                        MyThread mt = new MyThread();
+                        MyThread.setP(q);
+                        mt.start();
+                        mt.join();
+                        q = MyThread._p;
+                        listPerfNums.appendText(Long.toString(q) + "\n");
+                    } catch (InterruptedException e1) {
+                        // TODO Auto-generated catch block
+                        e1.printStackTrace();
+                    }
                 }
             }
         });
@@ -75,7 +84,7 @@ public class PrimePerfectGUI extends Application {
             listPrimeFactors.setText("");
             if (validateNum(primeToCheck.getText())) {
                 long[] x = primNum.primeFactors(Long.parseLong(primeToCheck.getText()));
-                for(int i = 0; i < x.length; i++){
+                for (int i = 0; i < x.length; i++) {
                     listPrimeFactors.appendText(Long.toString(x[i]) + '\n');
                 }
             }

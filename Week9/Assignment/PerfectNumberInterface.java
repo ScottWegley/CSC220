@@ -11,6 +11,6 @@ public interface PerfectNumberInterface {
     public long getPerfect(long p);
 
     // returns the smallest perfect number larger than p
-    public long getNextPerfect(long p);
+    public long getNextPerfect(long p) throws InterruptedException;
 
 }
