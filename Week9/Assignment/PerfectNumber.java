@@ -48,10 +48,15 @@ public class PerfectNumber implements PerfectNumberInterface {
 
 class MyThread extends Thread {
     public static long _p;
+    public static int remaining = 0;
 
     public static void setP(long p) {
         System.out.println("setting to " + p);
         _p = p;
+    }
+
+    public static void setR(int r){
+        remaining = r;
     }
 
     public static long getP() {
