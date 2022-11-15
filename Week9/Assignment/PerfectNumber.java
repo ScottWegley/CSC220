@@ -36,7 +36,11 @@ public class PerfectNumber implements PerfectNumberInterface {
     }
 
     @Override
-    public long getNextPerfect(long p) {
+    public long getNextPerfect(long p) throws InterruptedException {
+        p++;
+        while(!isPerfect(p)){
+            p++;
+        }
         return p;
     }
 
