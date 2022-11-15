@@ -1,7 +1,6 @@
 package Week9.Assignment;
 
 import javafx.application.Application;
-import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
