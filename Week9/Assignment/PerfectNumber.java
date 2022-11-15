@@ -51,7 +51,6 @@ class MyThread extends Thread {
     public static int remaining = 0;
 
     public static void setP(long p) {
-        System.out.println("setting to " + p);
         _p = p;
     }
 
