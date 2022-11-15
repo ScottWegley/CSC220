@@ -65,10 +65,18 @@ class MyThread extends Thread {
 
     @Override
     public void run() {
-        _p += 1;
-        while (!PerfectNumber.isPerfectSt(_p)) {
+        PrimePerfectGUI.setCalc(true);
+        for (int i = remaining; i > 0;) {
             _p++;
+            if(_p % 1000000 == 0){
+                System.out.println(_p);
+            }
+            if(PerfectNumber.isPerfectSt(_p)){
+                i--;
+                PrimePerfectGUI.addToList(_p);
+            }
         }
+        PrimePerfectGUI.setCalc(false);
         super.run();
     }
 
