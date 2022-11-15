@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 public class PrimePerfectGUI extends Application {
     private TextField perfNumReq = new TextField();
     private Button getPerfNums = new Button("Get Numbers");
-    private TextArea listPerfNums = new TextArea();
+    private static TextArea listPerfNums = new TextArea();
     private Button loadPerf = new Button("Load");
     private Button savePerf = new Button("Save");
 
