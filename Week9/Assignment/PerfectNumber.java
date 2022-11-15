@@ -40,11 +40,6 @@ public class PerfectNumber implements PerfectNumberInterface {
         return p;
     }
 
-    public void setP(long p) {
-        _p = p;
-        return;
-    }
-
 }
 
 class MyThread extends Thread {
