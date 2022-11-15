@@ -52,23 +52,12 @@ public class PrimePerfectGUI extends Application {
         perfPane.setAlignment(Pos.CENTER);
 
         getPerfNums.setOnAction(e -> {
-            listPerfNums.setText("");
-            int i;
-            Long q = 0L;
-            if (validateNum(perfNumReq.getText())) {
-                for (i = Integer.parseInt(perfNumReq.getText()); i > 0; i--) {
-                    try {
-                        MyThread mt = new MyThread();
-                        MyThread.setP(q);
-                        mt.start();
-                        mt.join();
-                        q = MyThread._p;
-                        listPerfNums.appendText(Long.toString(q) + "\n");
-                    } catch (InterruptedException e1) {
-                        // TODO Auto-generated catch block
-                        e1.printStackTrace();
-                    }
-                }
+            if (!calcPerfNums && validateNum(perfNumReq.getText())) {
+                listPerfNums.setText("");
+                MyThread mt = new MyThread();
+                MyThread.setR(Integer.parseInt(perfNumReq.getText()));
+                MyThread.setP(0L);
+                mt.start();
             }
         });
 
