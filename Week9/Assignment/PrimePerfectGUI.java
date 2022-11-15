@@ -30,6 +30,7 @@ public class PrimePerfectGUI extends Application {
     private Button savePrime = new Button("Save");
     private PerfectNumber perNum = new PerfectNumber();
     private PrimeNumber primNum = new PrimeNumber();
+    private static boolean calcPerfNums = false;
 
     @Override
     public void start(Stage stage) throws Exception {
