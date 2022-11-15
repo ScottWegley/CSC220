@@ -71,4 +71,15 @@ class MyThread extends Thread {
         }
         super.run();
     }
+
+    @Override
+    public void interrupt() {
+        reset();
+        super.interrupt();
+    }
+
+    public void reset() {
+        _p = 0;
+        remaining = 0;
+    }
 }
