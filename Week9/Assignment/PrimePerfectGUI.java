@@ -115,4 +115,12 @@ public class PrimePerfectGUI extends Application {
         }
     }
 
+    public static void addToList(long _p) {
+        listPerfNums.appendText(Long.toString(_p) + "\n");
+    }
+
+    public static void setCalc(boolean b) {
+        calcPerfNums = b;
+    }
+
 }
