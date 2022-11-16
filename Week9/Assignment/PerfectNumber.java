@@ -6,7 +6,6 @@ public class PerfectNumber implements PerfectNumberInterface {
 
     public void main(long p) {
         _p = p;
-        MyThread mt = new MyThread();
     }
 
     @Override
