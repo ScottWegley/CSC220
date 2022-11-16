@@ -54,9 +54,9 @@ public class PrimePerfectGUI extends Application {
         getPerfNums.setOnAction(e -> {
             if (!calcPerfNums && validateNum(perfNumReq.getText())) {
                 listPerfNums.setText("");
-                MyThread mt = new MyThread();
-                MyThread.setR(Integer.parseInt(perfNumReq.getText()));
-                MyThread.setP(0L);
+                PerfectThread mt = new PerfectThread();
+                PerfectThread.setR(Integer.parseInt(perfNumReq.getText()));
+                PerfectThread.setP(0L);
                 mt.start();
             }
         });

@@ -46,7 +46,7 @@ public class PerfectNumber implements PerfectNumberInterface {
 
 }
 
-class MyThread extends Thread {
+class PerfectThread extends Thread {
     public static long _p;
     public static int remaining = 0;
 
