@@ -63,7 +63,7 @@ class PerfectThread extends Thread {
 
     @Override
     public void run() {
-        PrimePerfectGUI.setCalc(true);
+        PrimePerfectGUI.setCalcPerf(true);
         for (int i = remaining; i > 0;) {
             _p++;
             if(_p % 1000000 == 0){
@@ -74,7 +74,7 @@ class PerfectThread extends Thread {
                 PrimePerfectGUI.addToList(_p);
             }
         }
-        PrimePerfectGUI.setCalc(false);
+        PrimePerfectGUI.setCalcPerf(false);
         super.run();
     }
 
