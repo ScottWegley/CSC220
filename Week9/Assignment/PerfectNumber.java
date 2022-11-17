@@ -64,9 +64,13 @@ class PerfectThread extends Thread {
     @Override
     public void run() {
         PrimePerfectGUI.setCalcPerf(true);
+        Long startTime = System.currentTimeMillis();
         for (int i = remaining; i > 0;) {
             _p++;
             if(PerfectNumber.isPerfectSt(_p)){
+                Long endTime = System.currentTimeMillis();
+                System.out.println("Started: " + startTime + " Elapsed: " + (endTime - startTime));
+                startTime = endTime;
                 i--;
                 PrimePerfectGUI.addToList(_p);
             }
