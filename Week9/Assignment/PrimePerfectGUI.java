@@ -31,6 +31,7 @@ public class PrimePerfectGUI extends Application {
     private PerfectNumber perNum = new PerfectNumber();
     private PrimeNumber primNum = new PrimeNumber();
     private static boolean calcPerfNums = false;
+    private static boolean calcPrimeFact = false;
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -124,6 +125,12 @@ public class PrimePerfectGUI extends Application {
             listPrimeFactors.appendText(Long.toString(_p2) + "\n");
         }
     }
+
+    public static void setCalcPrime(boolean b) {
+        calcPrimeFact = b;
+    }
+
+    public static void setCalcPerf(boolean b){
         calcPerfNums = b;
     }
 
