@@ -57,10 +57,6 @@ class PerfectThread extends Thread {
         remaining = r;
     }
 
-    public static long getP() {
-        return _p;
-    }
-
     @Override
     public void run() {
         PrimePerfectGUI.setCalcPerf(true);
