@@ -25,7 +25,7 @@ public class PrimePerfectGUI extends Application {
     private Label isPrimeLbl = new Label();
     private Button checkIfPrime = new Button("Is Prime?");
     private Button getPrimeFactors = new Button("Get Prime Factors");
-    private TextArea listPrimeFactors = new TextArea();
+    private static TextArea listPrimeFactors = new TextArea();
     private Button loadPrime = new Button("Load");
     private Button savePrime = new Button("Save");
     private PerfectNumber perNum = new PerfectNumber();
@@ -119,7 +119,11 @@ public class PrimePerfectGUI extends Application {
         listPerfNums.appendText(Long.toString(_p) + "\n");
     }
 
-    public static void setCalc(boolean b) {
+    public static void addFactor(long[] _p) {
+        for (long _p2 : _p) {
+            listPrimeFactors.appendText(Long.toString(_p2) + "\n");
+        }
+    }
         calcPerfNums = b;
     }
 
