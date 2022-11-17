@@ -29,6 +29,7 @@ public class PrimeNumber implements PrimeNumberInterface {
                 return false;
             }
         }
+        return p != 1L;
     }
 
     static boolean isPrimeSt(long p) {
@@ -37,6 +38,7 @@ public class PrimeNumber implements PrimeNumberInterface {
                 return false;
             }
         }
+        return p != 1L;
     }
 
     @Override
