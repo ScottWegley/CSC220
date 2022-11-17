@@ -60,6 +60,28 @@ class PrimeThread extends Thread {
     }
 
     @Override
+    public void run() {
+        PrimePerfectGUI.setCalcPrime(true);
+        ArrayList<Long> factors = new ArrayList<Long>();
+        for (long i = 2L; i <= (_p); i++) {
+            if (_p % i == 0) {
+                if (PrimeNumber.isPrimeSt(i)) {
+                    factors.add(i);
+                    _p = _p / i;
+                }
+            }
+        }
+        long[] arr = new long[factors.size()];
+        for (int i = 0; i < factors.size(); i++) {
+            arr[i] = factors.get(i);
+        }
+        reset();
+        PrimePerfectGUI.addFactor(arr);
+        PrimePerfectGUI.setCalcPrime(false);
+        super.run();
+    }
+
+    @Override
     public void interrupt() {
         reset();
         super.interrupt();
