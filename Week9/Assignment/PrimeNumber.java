@@ -29,7 +29,14 @@ public class PrimeNumber implements PrimeNumberInterface {
                 return false;
             }
         }
-        return true && p != 1L;
+    }
+
+    static boolean isPrimeSt(long p) {
+        for (long i = 2L; i <= Math.sqrt(p); i++) {
+            if (p % i == 0) {
+                return false;
+            }
+        }
     }
 
     @Override
