@@ -71,12 +71,11 @@ public class PrimePerfectGUI extends Application {
         });
 
         getPrimeFactors.setOnAction(e -> {
-            listPrimeFactors.setText("");
-            if (validateNum(primeToCheck.getText())) {
-                long[] x = primNum.primeFactors(Long.parseLong(primeToCheck.getText()));
-                for (int i = 0; i < x.length; i++) {
-                    listPrimeFactors.appendText(Long.toString(x[i]) + '\n');
-                }
+            if(!calcPrimeFact && validateNum(primeToCheck.getText())){
+                listPrimeFactors.setText("");
+                PrimeThread mt = new PrimeThread();
+                PrimeThread.setP(Long.parseLong(primeToCheck.getText()));
+                mt.start();
             }
         });
 
