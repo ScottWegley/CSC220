@@ -51,3 +51,21 @@ public class PrimeNumber implements PrimeNumberInterface {
     }
 
 }
+
+class PrimeThread extends Thread {
+    private static long _p;
+
+    public static void setP(long p) {
+        _p = p;
+    }
+
+    @Override
+    public void interrupt() {
+        reset();
+        super.interrupt();
+    }
+
+    public void reset() {
+        _p = 0;
+    }
+}
