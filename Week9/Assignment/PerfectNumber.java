@@ -72,6 +72,7 @@ class PerfectThread extends Thread {
             }
         }
         PrimePerfectGUI.setCalcPerf(false);
+        reset();
         super.run();
     }
 
