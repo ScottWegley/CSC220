@@ -132,6 +132,8 @@ class SessionHandler extends Thread {
             toPlayer1.writeInt(1);
             toPlayer2.writeInt(2);
             toPlayer1.writeBoolean(true);
+            while (scores[0] < 3 && scores[1] < 3) {
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
