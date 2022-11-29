@@ -96,5 +96,30 @@ class ConnectionManager extends Thread {
 }
 
 class SessionHandler extends Thread {
+    DataInputStream fromPlayer1;
+    DataInputStream fromPlayer2;
+    DataOutputStream toPlayer1;
+    DataOutputStream toPlayer2;
+
+    String ssID;
+    Socket player1;
+    Socket player2;
+    int victories = 0;
+    int[] scores = { 0, 0 };
+
+    public SessionHandler(Socket _player1, Socket _player2, String _ssID) {
+        this.ssID = _ssID;
+        this.player1 = _player1;
+        this.player2 = _player2;
+        try {
+            fromPlayer1 = new DataInputStream(this.player1.getInputStream());
+            fromPlayer2 = new DataInputStream(this.player2.getInputStream());
+            toPlayer1 = new DataOutputStream(this.player1.getOutputStream());
+            toPlayer2 = new DataOutputStream(this.player2.getOutputStream());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 
 }
