@@ -59,6 +59,15 @@ public class Client {
                                 JOptionPane.INFORMATION_MESSAGE);
                         new Thread() {
 
+                            int[] scores = { 0, 0 };
+                            boolean ready = false;
+
+                            public void run() {
+                                try {
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
                         }.start();
                     } catch (Exception e1) {
                         e1.printStackTrace();
