@@ -124,6 +124,16 @@ class SessionHandler extends Thread {
 
     @Override
     public void run() {
+        try {
+            Console.log(
+                "Starting a session with SSID(" + ssID + ") between IPS "
+                        + this.player1.getInetAddress().getHostAddress()
+                        + " and " + this.player2.getInetAddress().getHostAddress());
+            toPlayer1.writeInt(1);
+            toPlayer2.writeInt(2);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
