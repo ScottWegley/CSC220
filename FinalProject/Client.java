@@ -147,7 +147,23 @@ public class Client {
                                                 scores[0] = 0;
                                                 scores[1] = 0;
                                             } else {
+                                                if (playAgainI == 0) {
+                                                    JOptionPane.showMessageDialog(btnPaper,
+                                                            "The other player chose not to play again", ssID,
+                                                            JOptionPane.INFORMATION_MESSAGE);
+                                                }
+                                                toServer.writeBoolean(false);
+                                                btnRock.removeActionListener(btnRock.getActionListeners()[0]);
+                                                btnPaper.removeActionListener(btnPaper.getActionListeners()[0]);
+                                                btnScissors.removeActionListener(btnScissors.getActionListeners()[0]);
+                                                btnConnect.setEnabled(true);
+                                                inputSSID.setEditable(true);
+                                                inputSSID.setText("");
+                                                ((JMenu) mb.getComponent(0)).setText("Disconnected");
+                                                ((JMenu) mb.getComponent(1)).setText("PLAYER ?");
+                                                socket.close();
                                             }
+                                            ((JMenu) mb.getComponent(2)).setText("Score: " + scores[0]);
                                         }
                                     }
 
