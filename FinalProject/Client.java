@@ -45,6 +45,12 @@ public class Client {
         btnConnect.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (inputSSID.getText().length() != 6) {
+                    JOptionPane.showMessageDialog(btnConnect, "Please Submit a 6 Character ID", "Invalid ID Length",
+                            JOptionPane.ERROR_MESSAGE);
+                    return;
+                } else {
+                }
             }
         });
     }
