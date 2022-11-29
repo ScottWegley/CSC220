@@ -50,6 +50,12 @@ public class Client {
                             JOptionPane.ERROR_MESSAGE);
                     return;
                 } else {
+                        Socket socket = new Socket("localhost", 8000);
+                        btnConnect.setEnabled(false);
+                        inputSSID.setEditable(false);
+                        ((JMenu) mb.getComponent(0)).setText("Connected");
+                        JOptionPane.showMessageDialog(btnConnect, "Connected to server!", null,
+                                JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         });
