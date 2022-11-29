@@ -136,6 +136,12 @@ public class Client {
                                         }
                                         ((JMenu) mb.getComponent(2)).setText("Score: " + scores[0]);
                                         if (scores[0] == 3 || scores[1] == 3) {
+                                            int playAgainI = JOptionPane.showOptionDialog(btnPaper,
+                                                    (outcome == RPS_OUTCOME.VICTORY ? "You Won!" : "You Lost!")
+                                                            + " Play Again?",
+                                                    ssID, JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                                                    null, null, 1);
+                                            toServer.writeBoolean(playAgainI == 0);
                                         }
                                     }
 
