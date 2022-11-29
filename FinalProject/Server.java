@@ -35,6 +35,9 @@ public class Server {
         frame.getContentPane().add(panel);
         frame.setVisible(true);
         Console.log("testing");
+
+        ConnectionManager cm = new ConnectionManager();
+        cm.start();
     }
 }
 
