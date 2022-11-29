@@ -119,7 +119,15 @@ public class Client {
                                             }
                                         }
                                     });
+
                                     while (scores[0] < 3 && scores[1] < 3) {
+                                        ready = fromServer.readBoolean();
+                                        btnRock.setEnabled(ready);
+                                        btnPaper.setEnabled(ready);
+                                        btnScissors.setEnabled(ready);
+                                        RPS_OUTCOME outcome = RPS_OUTCOME.values()[fromServer.readInt()];
+                                        JOptionPane.showMessageDialog(btnPaper, outcome.toString(), "Outcome",
+                                                JOptionPane.INFORMATION_MESSAGE);
                                     }
 
                                 } catch (Exception e) {
