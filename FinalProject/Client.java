@@ -128,6 +128,13 @@ public class Client {
                                         RPS_OUTCOME outcome = RPS_OUTCOME.values()[fromServer.readInt()];
                                         JOptionPane.showMessageDialog(btnPaper, outcome.toString(), "Outcome",
                                                 JOptionPane.INFORMATION_MESSAGE);
+                                        if (outcome == RPS_OUTCOME.VICTORY) {
+                                            scores[0] += 1;
+                                        }
+                                        if (outcome == RPS_OUTCOME.DEFEAT) {
+                                            scores[1] += 1;
+                                        }
+                                        ((JMenu) mb.getComponent(2)).setText("Score: " + scores[0]);
                                     }
 
                                 } catch (Exception e) {
