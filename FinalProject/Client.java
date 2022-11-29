@@ -71,6 +71,54 @@ public class Client {
                                     PLAYERS player = PLAYERS.values()[fromServer.readInt() - 1];
 
                                     ((JMenu) mb.getComponent(1)).setText(player.name());
+                                    btnRock.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            if (ready) {
+                                                ready = false;
+                                                btnRock.setEnabled(ready);
+                                                btnPaper.setEnabled(ready);
+                                                btnScissors.setEnabled(ready);
+                                                try {
+                                                    toServer.writeInt(0);
+                                                } catch (IOException e1) {
+                                                    e1.printStackTrace();
+                                                }
+                                            }
+                                        }
+                                    });
+                                    btnPaper.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            if (ready) {
+                                                ready = false;
+                                                btnRock.setEnabled(ready);
+                                                btnPaper.setEnabled(ready);
+                                                btnScissors.setEnabled(ready);
+                                                try {
+                                                    toServer.writeInt(1);
+                                                } catch (IOException e1) {
+                                                    e1.printStackTrace();
+                                                }
+                                            }
+                                        }
+                                    });
+                                    btnScissors.addActionListener(new ActionListener() {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            if (ready) {
+                                                ready = false;
+                                                btnRock.setEnabled(ready);
+                                                btnPaper.setEnabled(ready);
+                                                btnScissors.setEnabled(ready);
+                                                try {
+                                                    toServer.writeInt(2);
+                                                } catch (IOException e1) {
+                                                    e1.printStackTrace();
+                                                }
+                                            }
+                                        }
+                                    });
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
