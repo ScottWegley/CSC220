@@ -60,3 +60,15 @@ class Console {
         console.setText("");
     }
 }
+
+class ConnectionManager extends Thread {
+    static HashMap<String, Socket> socketMap = new HashMap<String, Socket>();
+
+    private static boolean active = false;
+
+    public static synchronized void deactivate() {
+        active = false;
+    }
+
+}
+
