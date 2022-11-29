@@ -158,6 +158,20 @@ class SessionHandler extends Thread {
                 if (!(scores[0] == 3 || scores[1] == 3)) {
                     toPlayer1.writeBoolean(true);
                 } else {
+                    Console.log("SSID(" + ssID + ") has an overall " + (scores[0] == 3? "Player 1 " : "Player 2 ") + "victory!");
+                    //DATABASE SHIT GOES HERE
+                    if(fromPlayer1.readBoolean() && fromPlayer2.readBoolean()){
+                        Console.log("SSID(" + ssID + ") is playing again.");
+                        toPlayer1.writeBoolean(true);
+                        toPlayer2.writeBoolean(true);
+                        scores[0] = 0;
+                        scores[1] = 0;
+                        toPlayer1.writeBoolean(true);
+                    } else {
+                        toPlayer1.writeBoolean(false);
+                        toPlayer2.writeBoolean(false);
+                        Console.log("SSID(" + ssID + ") Terminated");
+                    }
                 }
             }
         } catch (Exception e) {
