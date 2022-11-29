@@ -135,6 +135,8 @@ public class Client {
                                             scores[1] += 1;
                                         }
                                         ((JMenu) mb.getComponent(2)).setText("Score: " + scores[0]);
+                                        if (scores[0] == 3 || scores[1] == 3) {
+                                        }
                                     }
 
                                 } catch (Exception e) {
