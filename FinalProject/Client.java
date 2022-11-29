@@ -142,6 +142,12 @@ public class Client {
                                                     ssID, JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE,
                                                     null, null, 1);
                                             toServer.writeBoolean(playAgainI == 0);
+                                            boolean playAgainB = fromServer.readBoolean();
+                                            if (playAgainB) {
+                                                scores[0] = 0;
+                                                scores[1] = 0;
+                                            } else {
+                                            }
                                         }
                                     }
 
