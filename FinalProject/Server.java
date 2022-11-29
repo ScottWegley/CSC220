@@ -17,6 +17,25 @@ public class Server {
     static JPanel panel;
     static JTextArea console;
     static JScrollPane consolePane;
+
+    public static void main(String[] args) {
+        frame = new JFrame("Server");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(800, 600);
+
+        panel = new JPanel();
+        panel.setBackground(Color.black);
+
+        consolePane = new JScrollPane(Console.generateConsole());
+        consolePane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        consolePane.setBorder(null);
+        consolePane.setPreferredSize(new Dimension(765, 400));
+        panel.add(consolePane);
+
+        frame.getContentPane().add(panel);
+        frame.setVisible(true);
+        Console.log("testing");
+    }
 }
 
 class Console {
