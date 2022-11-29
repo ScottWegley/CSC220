@@ -140,6 +140,21 @@ class SessionHandler extends Thread {
                         + RPS_MOVE.values()[p2move]);
                 toPlayer1.writeInt(RPS_MOVE.values()[p1move].fight(RPS_MOVE.values()[p2move]).ordinal());
                 toPlayer2.writeInt(RPS_MOVE.values()[p2move].fight(RPS_MOVE.values()[p1move]).ordinal());
+                switch (RPS_MOVE.values()[p1move].fight(RPS_MOVE.values()[p2move])) {
+                    default:
+                        Console.log("SSID(" + ssID + ") Drawn.  The score is " + scores[0] + "-" + scores[1]);
+                        break;
+                    case VICTORY:
+                        victories += 1;
+                        scores[0] += 1;
+                        Console.log("SSID(" + ssID + ") Player 1 wins.  The score is " + scores[0] + "-" + scores[1]);
+                        break;
+                    case DEFEAT:
+                        victories += 1;
+                        scores[1] += 1;
+                        Console.log("SSID(" + ssID + ") Player 2 wins.  The score is " + scores[0] + "-" + scores[1]);
+                        break;
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
