@@ -133,6 +133,13 @@ class SessionHandler extends Thread {
             toPlayer2.writeInt(2);
             toPlayer1.writeBoolean(true);
             while (scores[0] < 3 && scores[1] < 3) {
+                int p1move = fromPlayer1.readInt();
+                toPlayer2.writeBoolean(true);
+                int p2move = fromPlayer2.readInt();
+                Console.log("Player 1 move is " + RPS_MOVE.values()[p1move] + " and Player 2 move is "
+                        + RPS_MOVE.values()[p2move]);
+                toPlayer1.writeInt(RPS_MOVE.values()[p1move].fight(RPS_MOVE.values()[p2move]).ordinal());
+                toPlayer2.writeInt(RPS_MOVE.values()[p2move].fight(RPS_MOVE.values()[p1move]).ordinal());
             }
         } catch (Exception e) {
             e.printStackTrace();
