@@ -155,6 +155,10 @@ class SessionHandler extends Thread {
                         Console.log("SSID(" + ssID + ") Player 2 wins.  The score is " + scores[0] + "-" + scores[1]);
                         break;
                 }
+                if (!(scores[0] == 3 || scores[1] == 3)) {
+                    toPlayer1.writeBoolean(true);
+                } else {
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();
