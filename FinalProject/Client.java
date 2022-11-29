@@ -119,6 +119,9 @@ public class Client {
                                             }
                                         }
                                     });
+                                    while (scores[0] < 3 && scores[1] < 3) {
+                                    }
+
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
