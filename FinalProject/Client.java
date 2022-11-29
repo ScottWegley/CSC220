@@ -42,5 +42,10 @@ public class Client {
         frame.getContentPane().add(BorderLayout.SOUTH, panel);
         frame.setVisible(true);
 
+        btnConnect.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            }
+        });
     }
 }
