@@ -70,5 +70,28 @@ class ConnectionManager extends Thread {
         active = false;
     }
 
+    @Override
+    public void run() {
+        try {
+            active = true;
+            ServerSocket serverSocket = new ServerSocket(8000);
+            Console.log("Listening for Connections on " + serverSocket.getLocalPort());
+            while (active) {
+                Socket incoming = serverSocket.accept();
+                String ssID = new DataInputStream(incoming.getInputStream()).readUTF();
+                Console.log("New Connection with SSID(" + ssID + ") and IP address "
+                        + incoming.getInetAddress().getHostAddress());
+                if (socketMap.get(ssID) == null) {
+                    socketMap.put(ssID, incoming);
+                } else {
+                    new SessionHandler(socketMap.get(ssID), incoming, ssID).start();
+                    socketMap.remove(ssID);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
