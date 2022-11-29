@@ -64,6 +64,11 @@ public class Client {
 
                             public void run() {
                                 try {
+                                    DataInputStream fromServer = new DataInputStream(socket.getInputStream());
+                                    DataOutputStream toServer = new DataOutputStream(socket.getOutputStream());
+                                    String ssID = inputSSID.getText();
+                                    toServer.writeUTF(ssID);
+                                    PLAYERS player = PLAYERS.values()[fromServer.readInt() - 1];
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
