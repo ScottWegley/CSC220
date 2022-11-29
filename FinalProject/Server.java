@@ -95,3 +95,6 @@ class ConnectionManager extends Thread {
 
 }
 
+class SessionHandler extends Thread {
+
+}
