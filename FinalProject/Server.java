@@ -131,6 +131,7 @@ class SessionHandler extends Thread {
                         + " and " + this.player2.getInetAddress().getHostAddress());
             toPlayer1.writeInt(1);
             toPlayer2.writeInt(2);
+            toPlayer1.writeBoolean(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
