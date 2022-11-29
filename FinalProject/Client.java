@@ -69,6 +69,8 @@ public class Client {
                                     String ssID = inputSSID.getText();
                                     toServer.writeUTF(ssID);
                                     PLAYERS player = PLAYERS.values()[fromServer.readInt() - 1];
+
+                                    ((JMenu) mb.getComponent(1)).setText(player.name());
                                 } catch (Exception e) {
                                     e.printStackTrace();
                                 }
