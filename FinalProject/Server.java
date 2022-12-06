@@ -6,6 +6,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalTime;
 import java.util.HashMap;
 
@@ -38,6 +40,8 @@ public class Server {
 
         ConnectionManager cm = new ConnectionManager();
         cm.start();
+
+        new DBManager();
     }
 }
 
@@ -50,7 +54,7 @@ class Console {
         console.setEditable(false);
         console.setBackground(Color.black);
         console.setForeground(Color.white);
-        DefaultCaret caret = (DefaultCaret)console.getCaret();
+        DefaultCaret caret = (DefaultCaret) console.getCaret();
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
         return console;
     }
@@ -109,10 +113,14 @@ class SessionHandler extends Thread {
     String ssID;
     Socket player1;
     Socket player2;
+    long startTime;
     int victories = 0;
     int[] scores = { 0, 0 };
 
+    int[] records = { 0, 0 };
+
     public SessionHandler(Socket _player1, Socket _player2, String _ssID) {
+        this.startTime = System.currentTimeMillis();
         this.ssID = _ssID;
         this.player1 = _player1;
         this.player2 = _player2;
@@ -124,16 +132,15 @@ class SessionHandler extends Thread {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
     @Override
     public void run() {
         try {
             Console.log(
-                "Starting a session with SSID(" + ssID + ") between IPS "
-                        + this.player1.getInetAddress().getHostAddress()
-                        + " and " + this.player2.getInetAddress().getHostAddress());
+                    "Starting a session with SSID(" + ssID + ") between IPS "
+                            + this.player1.getInetAddress().getHostAddress()
+                            + " and " + this.player2.getInetAddress().getHostAddress());
             toPlayer1.writeInt(1);
             toPlayer2.writeInt(2);
             toPlayer1.writeBoolean(true);
@@ -163,9 +170,10 @@ class SessionHandler extends Thread {
                 if (!(scores[0] == 3 || scores[1] == 3)) {
                     toPlayer1.writeBoolean(true);
                 } else {
-                    Console.log("SSID(" + ssID + ") has an overall " + (scores[0] == 3? "Player 1 " : "Player 2 ") + "victory!");
-                    //DATABASE SHIT GOES HERE
-                    if(fromPlayer1.readBoolean() && fromPlayer2.readBoolean()){
+                    Console.log("SSID(" + ssID + ") has an overall " + (scores[0] == 3 ? "Player 1 " : "Player 2 ")
+                            + "victory!");
+                    records[(scores[0] == 3 ? 0 : 1)] += 1;
+                    if (fromPlayer1.readBoolean() && fromPlayer2.readBoolean()) {
                         Console.log("SSID(" + ssID + ") is playing again.");
                         toPlayer1.writeBoolean(true);
                         toPlayer2.writeBoolean(true);
@@ -175,11 +183,25 @@ class SessionHandler extends Thread {
                     } else {
                         toPlayer1.writeBoolean(false);
                         toPlayer2.writeBoolean(false);
-                        Console.log("SSID(" + ssID + ") Terminated");
                     }
                 }
             }
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        DBManager.triggerSessionUpdate(Long.valueOf(ssID + startTime), records[0], records[1]);
+        Console.log("SSID(" + ssID + ") Terminated after " + ((System.currentTimeMillis() - startTime) / 1000)
+                + " seconds");
+        ResultSet sessionData = DBManager.retrieveRecord(Long.valueOf(ssID + "" + startTime));
+        Console.log("Session Data added to DB with DBID " + ssID + "" + startTime);
+        try {
+            sessionData.next();
+            Console.log("Retrieving Session Data || DBID="
+                    + sessionData.getLong("SESSIONID")
+                    + " P1RECORD=" + sessionData.getInt("P1RECORD")
+                    + " P2RECORD=" + sessionData.getInt("P2RECORD"));
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
