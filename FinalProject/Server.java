@@ -75,9 +75,10 @@ class ConnectionManager extends Thread {
 
     @Override
     public void run() {
+        ServerSocket serverSocket = null;
         try {
             active = true;
-            ServerSocket serverSocket = new ServerSocket(8000);
+            serverSocket = new ServerSocket(8000);
             Console.log("Listening for Connections on " + serverSocket.getLocalPort());
             while (active) {
                 Socket incoming = serverSocket.accept();
@@ -91,6 +92,7 @@ class ConnectionManager extends Thread {
                     socketMap.remove(ssID);
                 }
             }
+            serverSocket.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
